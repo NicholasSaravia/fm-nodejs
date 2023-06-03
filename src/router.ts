@@ -5,44 +5,11 @@ import {
   optionalString,
   requiredString,
 } from "./utlis/router";
+import productRoutes from "./routes/product-routes";
 
 const router = Router();
 
-/**
- * Product
- */
-router.get("/product", (req, res) => {
-  res.status(200);
-  res.json({ message: "Hello World" });
-});
-router.get("/product/:id", (req, rest) => {});
-
-router.put(
-  "/product/:id",
-  [
-    requiredString("name").isLength({
-      min: 0,
-      max: 255,
-    }),
-  ],
-  errorValidation,
-  (req, res) => {}
-);
-
-router.post(
-  "/product",
-  [
-    requiredString("name").isLength({
-      min: 0,
-      max: 255,
-    }),
-  ],
-  errorValidation,
-  (req, res) => {}
-);
-
-router.delete("/product/:id", (req, res) => {});
-
+router.use(productRoutes);
 /**
  * Update
  */
