@@ -1,49 +1,16 @@
 import { Router } from "express";
-import { body, oneOf, query, validationResult } from "express-validator";
+import { body, query } from "express-validator";
 import {
   errorValidation,
   optionalString,
   requiredString,
 } from "./utlis/router";
 import productRoutes from "./routes/product-routes";
+import updateRoutes from "./routes/update-routes";
 
 const router = Router();
 
-router.use(productRoutes);
-/**
- * Update
- */
-router.get("/update", (req, res) => {});
-router.get("/update/:id", (req, rest) => {});
-
-router.put(
-  "/update/:id",
-  [
-    requiredString("title"),
-    requiredString("body"),
-    requiredString("status").isIn(["IN_PROGRESS", "SHIPPED", "DEPRECATED"]),
-    optionalString("version"),
-    optionalString("asset"),
-    optionalString("productId"),
-  ],
-  errorValidation,
-  (req, res) => {}
-);
-
-router.post(
-  "/update",
-  [
-    requiredString("title"),
-    requiredString("body"),
-    optionalString("version"),
-    optionalString("asset"),
-    optionalString("productId"),
-  ],
-  errorValidation,
-  (req, res) => {}
-);
-
-router.delete("/update/:id", (req, res) => {});
+router.use([productRoutes, updateRoutes]);
 
 /**
  * Update Point
