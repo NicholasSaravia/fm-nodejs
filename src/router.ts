@@ -5,12 +5,13 @@ import {
   optionalString,
   requiredString,
 } from "./utlis/router";
-import productRoutes from "./routes/product-routes";
-import updateRoutes from "./routes/update-routes";
+import { router as updateRoutes } from "./routes/update-routes";
+import { router as productRoutes } from "./routes/product-routes";
 
 const router = Router();
 
-router.use([productRoutes, updateRoutes]);
+router.use(updateRoutes);
+router.use(productRoutes);
 
 /**
  * Update Point

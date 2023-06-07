@@ -12,7 +12,7 @@ import {
 } from "../utlis/router";
 import { Router } from "express";
 
-const router = Router();
+export const router = Router();
 
 router.get("/update", getUpdates);
 router.get("/update/:id", getOneUpdate);
@@ -45,5 +45,3 @@ router.post(
 );
 
 router.delete("/update/:id", deleteUpdate);
-
-export default router;

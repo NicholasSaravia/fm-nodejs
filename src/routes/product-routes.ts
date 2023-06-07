@@ -7,8 +7,8 @@ import {
   getProducts,
   updateProduct,
 } from "../handlers/product";
-// combine multiple routes into a single file
-const router = Router();
+
+export const router = Router();
 
 router.get("/product", getProducts);
 
@@ -39,5 +39,3 @@ router.post(
 );
 
 router.delete("/product/:id", (req, res) => deleteProduct);
-
-export default router;
