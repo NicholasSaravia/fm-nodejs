@@ -18,6 +18,11 @@ app.use(express.json());
 // allows client to send query strings to server
 app.use(express.urlencoded({ extended: true }));
 
+// get
+app.get("/", (req, res) => {
+  res.json({ message: "hello" });
+});
+
 // routes
 app.use("/api", protect, router);
 
